@@ -73,7 +73,6 @@ export class LoginComponent {
       this.authService.login(this.user).subscribe({
         next: (res) => {
           if (res != null) {
-            console.log(res);
             localStorage.setItem('role', res.role);
             this.router.navigateByUrl('home');
           } else {

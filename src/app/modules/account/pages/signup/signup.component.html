@@ -40,6 +40,9 @@
     
     
     </form>
+
+    <app-notification *ngIf="isSuccess" class="notification notification-overlay" [message]="successMessage"></app-notification>
+
 </div>
 
 

@@ -11,6 +11,9 @@ import { Router } from '@angular/router';
   providers: [AuthServiceService]
 })
 export class SignupComponent implements OnInit {
+
+  isSuccess = false;
+  successMessage = ""
   user = {
     username: '',
     password: '',
@@ -60,12 +63,20 @@ export class SignupComponent implements OnInit {
 
       this.authService.signin(this.user).subscribe({
         next: (res) => {
-          console.log(res.success);
           if (res.success === true) {
-            window.alert('Registro exitoso')
-            this.router.navigate(['/home']);
+            this.isSuccess = true;
+            this.successMessage = "Registro exitoso!";
+            setTimeout(() => {
+              this.isSuccess = false;
+              this.router.navigate(['/login']);
+            }, 2000)
           }else{
-            window.alert('Usuario exists')
+            this.isSuccess = true;
+            this.successMessage = "El usuario ya existe!";
+            setTimeout(() => {
+              this.isSuccess = false;
+              this.router.navigate(['/login']);
+            }, 2000)
           }
         },
         error: (err) => {
