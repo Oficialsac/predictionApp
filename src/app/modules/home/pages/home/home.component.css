@@ -1,0 +1,119 @@
+body{
+    background-color: white;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 1000px;
+}
+
+.header_main{
+    width: 100%;
+    height: 240px;
+}
+
+.banner{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#iue, #unal{
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    margin: 20px;
+}
+
+.menu_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn_style{
+    width: 190px;
+    height: 45px;
+    margin-left: 20px;
+    border-radius: 10px;
+}
+
+
+.btn_style:hover{
+    filter: brightness(.2);
+}
+
+
+/* ----------------------- Training Data Style --------------------------- */
+
+.tdt_main_content{
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+    width: 100%;
+    height: 540px;
+}
+
+.left_side{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.btn_ts{
+    width: 363px;
+    height: 45px;
+    margin: 60px;
+}
+
+
+.right_side{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.table_data{
+    width: 450px;
+    height: 350px;
+    overflow: auto;
+}
+
+.logos{
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+}
+
+#iue_ts, #unal_ts{
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin: 20px;
+}
+
+.class{
+    display: none;
+}
+
+.class1{
+    display: block;
+}
+
+
+.header-container{
+    display: flex;   
+    align-items: center;
+    justify-content: center;
+}
+
+.back-button{
+    position: absolute;
+    left: 30px;
+    width: 60px;
+    height: 40px;
+}

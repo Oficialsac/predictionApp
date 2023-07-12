@@ -1,0 +1,32 @@
+<div class="header-container">
+    <app-back-button class="back-button"></app-back-button>
+    <h1> Entrenamiento datos </h1>    
+</div>
+<h2 class="pre-data">Previsualización previa</h2>
+<body>
+    <main class="tdt_main_content">
+        <div class="left_side">
+          
+            <input id="file-input" type="file" (change)="loadData($event)">
+            <label for="file-input">Cargar datos</label>
+
+            <select name="select" id="training_model" class="btn_ts">
+                <option value="MLinearRegression"> Multiple Linear Regression </option>
+                <option value="DesicionTree"> Desicion Tree </option>
+                <option value="Kmeans"> Kmeans </option>
+                <option value="LogisticRegression"> LogisticRegression </option>
+            </select>
+
+            <button class="btn_ts training_data"> Entrenar datos </button>
+        </div>
+        <div class="right_side">
+            <div class="dataset_prev">
+                <div [innerHTML]="html_content" class="table_content"></div>
+            </div>
+            <div class="logos">
+                <img src="../../../../../assets/iueHeader.svg" alt="" id="iue_ts">
+                <img src="../../../../../assets/unalWhite.svg" alt="" id="unal_ts">>
+            </div>
+        </div>
+    </main>
+</body>

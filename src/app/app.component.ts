@@ -11,11 +11,7 @@ import { APP_CONFIG } from '../environments/environment';
 export class AppComponent {
   constructor(
     private electronService: ElectronService,
-    private translate: TranslateService
   ) {
-    this.translate.setDefaultLang('en');
-    console.log('APP_CONFIG', APP_CONFIG);
-
     if (electronService.isElectron) {
       console.log(process.env);
       console.log('Run in electron');

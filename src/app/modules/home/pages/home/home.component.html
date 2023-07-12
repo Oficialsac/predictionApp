@@ -1,0 +1,19 @@
+<div class="header-container">
+    <app-back-button class="back-button"></app-back-button>
+    <h1> Inicio </h1>    
+</div>
+
+<header class="header_main">
+    <div class="banner">
+        <img src="../../../../../assets/iueHeader.svg" alt="" id="iue_ts">
+        <img src="../../../../../assets/unalWhite.svg" alt="" id="unal_ts">
+    </div>
+</header>
+
+<main class="main_content">
+    <div class="menu_container">
+        <button [hidden]="!role" class="btn_style" type="submit" routerLink="/training"> Entrenamiento </button>
+        <button class="btn_style" type="submit" routerLink="/predictions"> Prediccion </button>
+        <button class="btn_style"> Estadisticos </button>
+    </div>
+</main>

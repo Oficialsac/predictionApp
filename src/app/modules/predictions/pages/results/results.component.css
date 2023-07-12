@@ -1,0 +1,14 @@
+.container{
+    width: 950px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.predict-button{
+    width: 200px;
+    height: 40px;
+    margin-top: 100px;
+}

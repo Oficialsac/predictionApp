@@ -1,0 +1,45 @@
+<div class="globalContainer">
+    <div class="header">
+        <h1> Registro Usuarios </h1>
+        <div class="logos">
+            <img src="../../../../../assets/iueHeader.svg" alt="" id="iue_ts">
+            <img src="../../../../../assets/unalWhite.svg" alt="" id="unal_ts">
+        </div>
+    </div>
+
+    <form class="container" (ngSubmit)="signup()" [formGroup]="groupForm">
+
+        <label for="username"> Username </label>
+        
+        <input 
+            type="text" 
+            id="username"
+            name="username"
+            required="required"
+            formControlName="username"
+            placeholder="Username">
+    
+        <label for="username" class="error-label" *ngIf="Username.invalid && (Username.dirty || Username.touched )">
+                Debe contener minimo 6 caracteres    
+        </label>
+        
+        <label for="password"> Password</label>
+    
+        <input 
+            type="password"
+            id="password"
+            name="password"
+            required="required"
+            formControlName="password"
+            placeholder="Password">
+        <label for="username" class="error-label" *ngIf="Password.invalid && (Password.dirty || Password.touched )">
+                Debe ingresar la contraseña
+        </label>
+        <button class="login-btn" id="login-btn" type="submit"> Registrar</button>
+        <label for="login-btn"> Ya estas registrado? <a class="sign-up" routerLink="/account/login">Ingresa ahora</a></label>
+    
+    
+    </form>
+</div>
+
+

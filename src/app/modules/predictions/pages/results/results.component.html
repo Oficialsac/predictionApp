@@ -1,0 +1,7 @@
+<div class="container">
+    <h1> El programa X {{ results.predictions }} es viable</h1>
+    <p> Con una confiabilidad del modelo del {{ results.coef_[0]}} %</p>
+
+
+    <button (click)="newPrediction()" class="predict-button"> Nueva predicción</button>
+</div>

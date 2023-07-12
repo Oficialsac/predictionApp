@@ -1,0 +1,39 @@
+<div class="header-container">
+    <app-back-button class="back-button"></app-back-button>
+    <div [ngSwitch]="showResults">
+        <h1 *ngSwitchCase="false"> Prediccion </h1>
+        <h1 *ngSwitchCase="true"> Informe Prediccion </h1> 
+    </div>
+</div>
+
+<div class="" [ngSwitch]="showResults">
+
+    <div *ngSwitchCase="true">
+        <app-results [results]="results" (showResults)="handleShowResultsChange($event)"></app-results>
+    </div>
+    
+    <div class="container" *ngSwitchCase="false">
+
+
+        <div class="description-predict">
+            <h3> Ingrese un valor en cada campo para realizar un predicción </h3>
+        </div>
+    
+        <p *ngIf="error"> Debe ingresar los valores en los campos con *</p>
+
+        <div class=" input-container">
+
+            <form [formGroup]="form" class="input-container">
+                <div *ngFor="let v of vars" class="input-column">
+                    <app-form [variable]="v" [form]="form"></app-form>
+                </div>
+            </form>
+    
+        </div>   
+        
+        <button (click)="predictValue()" class="predict-button"> Predecir </button>
+    </div>
+    
+</div>
+
+

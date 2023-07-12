@@ -14,8 +14,11 @@ function createWindow(): BrowserWindow {
   win = new BrowserWindow({
     x: 0,
     y: 0,
-    width: size.width,
-    height: size.height,
+    minWidth: 1000,
+    minHeight: 680,
+    maxWidth: 1000,
+    maxHeight: 680,
+    maximizable: false,
     webPreferences: {
       nodeIntegration: true,
       allowRunningInsecureContent: (serve),

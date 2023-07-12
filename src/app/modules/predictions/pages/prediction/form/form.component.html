@@ -1,0 +1,9 @@
+<div [formGroup]="form">
+
+    <div class="label-container">
+        <label [attr.for]="variable.key"> {{variable.key}} </label>
+        <div class="errorMessage" *ngIf="!isRequired">*</div>   
+    </div>
+    
+    <input type="text" [formControlName]="variable.key" [id]="variable.key">
+</div>
