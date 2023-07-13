@@ -1,12 +1,13 @@
+<h1 class="title">Registro usuarios</h1>
 <div class="globalContainer">
+
     <div class="header">
-        <h1> Registro Usuarios </h1>
         <div class="logos">
             <img src="../../../../../assets/iueHeader.svg" alt="" id="iue_ts">
             <img src="../../../../../assets/unalWhite.svg" alt="" id="unal_ts">
         </div>
     </div>
-
+    
     <form class="container" (ngSubmit)="signup()" [formGroup]="groupForm">
 
         <label for="username"> Username </label>
@@ -40,6 +41,8 @@
     
     
     </form>
+
+    
 
     <app-notification *ngIf="isSuccess" class="notification notification-overlay" [message]="successMessage"></app-notification>
 

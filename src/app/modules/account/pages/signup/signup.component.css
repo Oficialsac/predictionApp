@@ -1,14 +1,19 @@
+.title{
+  position: absolute;
+  left: 35%;
+}
 .container{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: column; 
     width: 100%;
     height: 300px;
+    margin-top: 60px;
   }
   
   input{
-    width: 300px;
+    width: 310px;
     height: 30px;
     margin: 10px 10px 10px 10px;
   }
@@ -17,7 +22,7 @@
     width: 150px;
     height: 30px;
     margin-top: 30px;
-    margin-bottom: 5px;
+    margin-bottom: 30px;
   }
   
   .error-label{
@@ -31,21 +36,26 @@
   }
   
   .globalContainer{
+    height: 580px;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
   }
   
   .header{
     display: flex;
     justify-content: center;
-    margin-top: 10px;
-    flex-direction: column;
-    align-items: center;
+    margin: 50px;
   }
   
 .logos img{
-  width: 200px;
-  height: 100px;
+  width: 166px;
+  height: 96px;
+}
+
+.logos{
+  display: flex;
 }
 
 #iue_ts, #unal_ts{
