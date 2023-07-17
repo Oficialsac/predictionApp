@@ -34,6 +34,13 @@
     align-items: center;
     justify-content: center;
   }
+
+  .errorLogin{
+    position: absolute;
+    right: 19.5%;
+    top: 23%;
+    font-size: 20px;
+  }
   
   .globalContainer{
     height: 580px;

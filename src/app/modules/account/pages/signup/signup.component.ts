@@ -14,6 +14,8 @@ export class SignupComponent implements OnInit {
 
   isSuccess = false;
   successMessage = ""
+  noSuccessful = false;
+
   user = {
     username: '',
     password: '',

@@ -8,18 +8,16 @@ import { User } from '../../schemas/user/user';
   providedIn: 'root'
 })
 export class AuthServiceService {
-
-
-  private baseUrl: string = 'http://127.0.0.1:8000'
+  private baseUrl: string = 'http://127.0.0.1:8080/api/auth'
 
   constructor(private http: HttpClient) { }
 
   login(body: User): Observable<any> {
-    return this.http.post(`${this.baseUrl}/user`, body);
+    return this.http.post(`${this.baseUrl}/login`, body);
   }
 
   signin(body: User): Observable<any> {
-    return this.http.post(`${this.baseUrl}/signup`, body);
+    return this.http.post(`${this.baseUrl}/register`, body);
   }
 
 }

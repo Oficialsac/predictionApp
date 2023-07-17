@@ -7,7 +7,11 @@
             <img src="../../../../../assets/unalWhite.svg" alt="" id="unal_ts">
         </div>
     </div>
-    
+
+    <div *ngIf="isSuccess" class="errorLogin">
+        <p> {{successMessage}} </p>
+    </div>
+
     <form class="container" (ngSubmit)="signup()" [formGroup]="groupForm">
 
         <label for="username"> Username </label>
@@ -44,7 +48,7 @@
 
     
 
-    <app-notification *ngIf="isSuccess" class="notification notification-overlay" [message]="successMessage"></app-notification>
+    <!-- <app-notification *ngIf="isSuccess" class="notification notification-overlay" [message]="successMessage"></app-notification> -->
 
 </div>
 
