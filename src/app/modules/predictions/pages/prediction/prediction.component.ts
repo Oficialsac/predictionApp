@@ -43,12 +43,14 @@ export class PredictionComponent {
           .predictValue(this.valuestoPredict)
           .subscribe((data) => {
             if( data !== undefined ){
-
+              console.log(data);
+              
               this.results = new PredictionsBase({
                 coef_: data.coef_,
                 intercept: data.intercept,
                 predictions: data.predictions
               })
+
 
               this.showResults = true;
             }

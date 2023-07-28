@@ -17,4 +17,6 @@ export class ResultsComponent {
   newPrediction(){
     this.showResults.emit(false);
   }
+
+
 }

@@ -30,7 +30,7 @@ const fakeVariables = [
   providedIn: 'root',
 })
 export class PredictionService {
-  baseUrl: string = 'http://127.0.0.1:8000';
+  baseUrl: string = 'http://127.0.0.1:8080/api/data';
 
   private results$ = new BehaviorSubject<any>([]);
   selectedResults$ = this.results$.asObservable();
@@ -43,7 +43,7 @@ export class PredictionService {
 
   predictValue(values: Values): Observable<PredictionsBase> {
     return this.http.post<PredictionsBase>(
-      this.baseUrl + '/predict',
+      this.baseUrl + '/prediction',
       values,
       httpOptions
     );
