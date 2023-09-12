@@ -1,0 +1,29 @@
+<div class="header-container mt-3">
+    <app-back-button class="back-button"></app-back-button>
+    <h1 class="fs-3"> Administración de usuarios </h1>    
+</div>
+
+
+<div class="table-container">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Rol</th>
+                <th scope="col">Actualizar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users; index as i">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>
+                    {{ user.username}}
+                </td>
+                <td class=""> {{ user.role }} </td>
+                <td> <button class="container btn btn-light btn-outline-warning d-flex justify-content-center" (click)="updateRol(user)"> Cambiar </button> </td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>

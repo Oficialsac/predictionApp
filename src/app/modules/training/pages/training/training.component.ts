@@ -10,6 +10,8 @@ import { TrainingService } from '../../../../core/services/training/training.ser
 export class TrainingComponent {
   html_content: string = '';
   fileName: string = '';
+  trainingSuccesfully: boolean = false;
+  successMessage: string = "Entrenamiento finalizado";
 
   constructor(private http: TrainingService ) {}
 
@@ -34,6 +36,14 @@ export class TrainingComponent {
         window.alert('This file is not supported');
       }
     }
+  }
+
+  trainingData(){
+    this.trainingSuccesfully = true;
+
+    setTimeout(() => {
+      this.trainingSuccesfully = false;
+    }, 5000)
   }
 
   ngOnInit(): void {

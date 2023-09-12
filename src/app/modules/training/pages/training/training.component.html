@@ -3,6 +3,11 @@
     <h1> Entrenamiento datos </h1>    
 </div>
 <h2 class="pre-data">Previsualización previa</h2>
+
+<div *ngIf="trainingSuccesfully" class="trainingNotification">
+    <p>{{successMessage}}</p>
+</div>
+
 <body>
     <main class="tdt_main_content">
         <div class="left_side">
@@ -17,7 +22,9 @@
                 <option value="LogisticRegression"> LogisticRegression </option>
             </select>
 
-            <button class="btn_ts training_data"> Entrenar datos </button>
+            <button class="btn_ts training_data" (click)="trainingData()"> Entrenar datos </button>
+
+           
         </div>
         <div class="right_side">
             <div class="dataset_prev">

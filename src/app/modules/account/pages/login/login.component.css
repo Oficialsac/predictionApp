@@ -1,6 +1,6 @@
 .title{
   position: absolute;
-  left: 35%;
+  left: 38%;
 }
 
 .container{
@@ -74,5 +74,9 @@
   height: 120px;
   object-fit: contain;
   margin: 20px;
+}
+
+.but{
+  width: 200px;
 }
 

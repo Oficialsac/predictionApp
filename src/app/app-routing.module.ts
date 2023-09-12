@@ -26,6 +26,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/predictions/predictions.module').then((m) => m.PredictionsModule),
   },
   {
+    path: 'admin',
+    loadChildren: () => import('./modules/admin/admin/administrator.module').then((m) => m.AdministratorModule),
+  },
+  {
     path: '**',
     redirectTo: 'account/login',
     pathMatch: 'full',

@@ -1,29 +1,28 @@
-<h1 class="title">Ingreso usuarios</h1>
-<div class="globalContainer">
-    
-    
+<h1 class="title d-flex justify-content-center fs-3 mt-3">Ingreso de usuarios</h1>
 
+<div class="globalContainer">    
+    
     <div *ngIf="noSuccessful" class="errorLogin">
         <p> Usuario o contraseña incorrecta</p>
     </div>
 
     <form class="container" (ngSubmit)="loginSesion()" [formGroup]="groupForm">
 
-        <label for="username"> Username </label>
-        
+        <label for="username" class="form-label"> Username </label>
         <input 
             type="text" 
             id="username"
             name="username"
             required="required"
             formControlName="username"
-            placeholder="Username">
-    
-        <label for="username" class="error-label" *ngIf="Username.invalid && (Username.dirty || Username.touched )">
+            placeholder="Username"
+            class="form-control">
+
+        <label for="username" class="form-text" *ngIf="Username.invalid && (Username.dirty || Username.touched )">
                 Debe contener minimo 6 caracteres    
         </label>
         
-        <label for="password"> Password</label>
+        <label for="password" class="form-label"> Password</label>
     
         <input 
             type="password"
@@ -31,12 +30,15 @@
             name="password"
             required="required"
             formControlName="password"
-            placeholder="Password">
-        <label for="username" class="error-label" *ngIf="Password.invalid && (Password.dirty || Password.touched )">
+            placeholder="Password"
+            class="form-control">
+
+        <label for="username" class="form-text" *ngIf="Password.invalid && (Password.dirty || Password.touched )">
                 Debe ingresar la contraseña
         </label>
-        <button class="login-btn" id="login-btn" type="submit"> Ingresa </button>
-        <label for="login-btn"> No estas registrado? <a class="sign-up" routerLink="/account/signup">Registrate ahora</a></label>
+        
+        <button class="but btn btn-light btn-outline-dark d-flex justify-content-center" id="login-btn" type="submit"> Ingresa </button>
+        <label for="login-btn" class="form-text"> No estas registrado? <a class="sign-up" routerLink="/account/signup">Registrate ahora</a></label>
     
     
     </form>
