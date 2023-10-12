@@ -1,27 +1,26 @@
-<div class="header-container">
+<div class="header-container mt-3">
     <app-back-button class="back-button"></app-back-button>
     <div [ngSwitch]="showResults">
-        <h1 *ngSwitchCase="false" class="fs-3"> Prediccion </h1>
-        <h1 *ngSwitchCase="true" class="fs-3"> Informe Prediccion </h1> 
+        <h1 *ngSwitchCase="false" class="fs-3"> Predicción </h1>
+        <h1 *ngSwitchCase="true" class="fs-3"> Informe de la predicción </h1> 
     </div>
 </div>
 
 <div class="" [ngSwitch]="showResults">
 
     <div *ngSwitchCase="true">
-        <app-results [results]="results" (showResults)="handleShowResultsChange($event)"></app-results>
+        <app-results [results]="results"  [values]="valuestoPredict" (showResults)="handleShowResultsChange($event)"></app-results>
     </div>
     
-    <div class="container" *ngSwitchCase="false">
+    <div style="margin-top: 100px;" class="container-xxl d-flex flex-column" *ngSwitchCase="false">
 
-
-        <div class="description-predict">
-            <h3> Ingrese un valor en cada campo para realizar un predicción </h3>
+        <div class="description-predict mb-3 d-flex flex-column">
+            <h3> Ingrese un valor en cada campo para realizar una predicción </h3>
+            <p *ngIf="error" class="form-text d-flex justify-content-center"> Debe ingresar los valores en los campos con *</p>
         </div>
     
-        <p *ngIf="error"> Debe ingresar los valores en los campos con *</p>
 
-        <div class=" input-container">
+        <div class="input-container">
 
             <form [formGroup]="form" class="input-container">
                 <div *ngFor="let v of vars" class="input-column">
@@ -31,9 +30,13 @@
     
         </div>   
         
-        <button (click)="predictValue()" class="predict-button"> Predecir </button>
+        <div class="d-flex justify-content-center mt-5">
+            <button (click)="predictValue()" class="but btn btn-light btn-outline-dark"> Predecir </button>
+        </div>
     </div>
     
+    <app-footer></app-footer>
+
 </div>
 
 

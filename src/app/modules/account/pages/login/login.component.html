@@ -8,21 +8,22 @@
 
     <form class="container" (ngSubmit)="loginSesion()" [formGroup]="groupForm">
 
-        <label for="username" class="form-label"> Username </label>
+        <label for="username" class="form-label" style="width: 73%;"> Usuario </label>
         <input 
             type="text" 
             id="username"
             name="username"
             required="required"
             formControlName="username"
-            placeholder="Username"
-            class="form-control">
+            placeholder="Ingrese el usuario..."
+            class="form-control mt-0"
+            style="width: 400px; height: 40px;">
 
         <label for="username" class="form-text" *ngIf="Username.invalid && (Username.dirty || Username.touched )">
                 Debe contener minimo 6 caracteres    
         </label>
         
-        <label for="password" class="form-label"> Password</label>
+        <label for="password" class="form-label mt-3" style="width: 73%;"> Contraseña</label>
     
         <input 
             type="password"
@@ -30,17 +31,17 @@
             name="password"
             required="required"
             formControlName="password"
-            placeholder="Password"
-            class="form-control">
+            placeholder="Ingrese la contraseña..."
+            class="form-control mt-0"
+            style="width: 400px; height: 40px;">
 
         <label for="username" class="form-text" *ngIf="Password.invalid && (Password.dirty || Password.touched )">
                 Debe ingresar la contraseña
         </label>
         
-        <button class="but btn btn-light btn-outline-dark d-flex justify-content-center" id="login-btn" type="submit"> Ingresa </button>
-        <label for="login-btn" class="form-text"> No estas registrado? <a class="sign-up" routerLink="/account/signup">Registrate ahora</a></label>
-    
-    
+
+        <button class="but btn btn-light btn-outline-dark d-flex justify-content-center mt-5" id="login-btn" type="submit"> Ingresa </button>
+        <label class="form-text mt-4"> No estas registrado? <a class="sign-up" routerLink="/account/signup">Registrate ahora</a></label>
     </form>
 
     <div class="header">

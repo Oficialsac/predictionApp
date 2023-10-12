@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { ValuesControlService } from '../../../../core/services/prediction/values-control.service';
 import { FormGroup } from '@angular/forms';
 import { PredictionsBase } from '../../../../core/schemas/prediction/predictions';
+import { Values } from '../../../../core/schemas/values/values';
 
 @Component({
   selector: 'app-prediction',
@@ -18,12 +19,14 @@ export class PredictionComponent {
   variables$: Observable<ValuesBase<any>[]>;
   valuestoPredict: any = {};
   results!: PredictionsBase
+  valuesToResults: any = {};
   showResults: boolean = false;
   vars: any = [];
   error: boolean = false;
 
   ngOnInit(): void {
     this.variables$.subscribe((data) => (this.vars = data));
+    console.log(this.vars);
     this.form = this.vcs.toFormGrop(this.vars as ValuesBase<any>[]);
   }
 
@@ -43,15 +46,11 @@ export class PredictionComponent {
           .predictValue(this.valuestoPredict)
           .subscribe((data) => {
             if( data !== undefined ){
-              console.log(data);
-              
               this.results = new PredictionsBase({
                 coef_: data.coef_,
                 intercept: data.intercept,
                 predictions: data.predictions
               })
-
-
               this.showResults = true;
             }
           });

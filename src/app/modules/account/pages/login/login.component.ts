@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthServiceService } from '../../../../core/services/authService/auth-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -72,14 +73,14 @@ export class LoginComponent {
 
       this.authService.login(this.user).subscribe({
         next: (res) => {
-          if (res != null) {
-            localStorage.setItem('role', res.role);
+          if (res.success == true) {
+            localStorage.setItem('role', res.user.role);
             this.router.navigateByUrl('home');
           } else {
-            this.noSuccessful = true;
-            setTimeout(() => {
-              this.noSuccessful = false;
-            }, 2000)
+            Swal.fire({
+              icon: "error", 
+              title: "Usuario o contraseña incorrecta",  
+            })
           }
         },
         error: (err) => {

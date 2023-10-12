@@ -90,13 +90,13 @@ body{
 }
 
 #iue_ts, #unal_ts{
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     object-fit: contain;
     margin: 20px;
 }
 
-.class{
+.hidden_btn{
     display: none;
 }
 
@@ -116,4 +116,9 @@ body{
     left: 30px;
     width: 60px;
     height: 40px;
+}
+
+.wi{
+    width: 200px; 
+    height: 42px;
 }

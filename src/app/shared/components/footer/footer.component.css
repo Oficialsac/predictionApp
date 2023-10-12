@@ -1,0 +1,12 @@
+#iue_ts, #unal_ts{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin: 20px;
+}
+
+.logos{
+    position: absolute;
+    right: 10px;
+    bottom: 0px;
+}

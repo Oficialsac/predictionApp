@@ -1,39 +1,57 @@
-<div class="header-container">
+<div class="header-container mt-3">
     <app-back-button class="back-button"></app-back-button>
-    <h1> Entrenamiento datos </h1>    
+    <h1 classs="fs-3"> Entrenamiento de datos </h1>    
 </div>
-<h2 class="pre-data">Previsualización previa</h2>
-
-<div *ngIf="trainingSuccesfully" class="trainingNotification">
-    <p>{{successMessage}}</p>
-</div>
+<h2 class="pre-data fs-4 mt-3">Previsualización de datos</h2>
 
 <body>
-    <main class="tdt_main_content">
-        <div class="left_side">
+    <main class="tdt_main_content mt-3">
+        <div class="left_side mt-3">
           
-            <input id="file-input" type="file" (change)="loadData($event)">
-            <label for="file-input">Cargar datos</label>
-
-            <select name="select" id="training_model" class="btn_ts">
+          <div class="mb-3">
+            <label for="file-input" class="form-label">Cargar datos</label>
+            <input style="width: 400px" class="form-control" type="file" id="file-input" (change)="loadData($event)">
+          </div>
+        
+          <div class="mb-3">
+            <label for="training-model"> Selección del algoritmo </label>
+            <select style="width: 400px" name="select" id="training_model" class="form-select">
+                <option selected>Elige el modelo de entrenamiento</option>
                 <option value="MLinearRegression"> Multiple Linear Regression </option>
                 <option value="DesicionTree"> Desicion Tree </option>
                 <option value="Kmeans"> Kmeans </option>
                 <option value="LogisticRegression"> LogisticRegression </option>
             </select>
+          </div>
 
-            <button class="btn_ts training_data" (click)="trainingData()"> Entrenar datos </button>
-
+          <button class="btn btn-light btn-outline-dark" style="width: 250px;" (click)="trainingData()"> Entrenar datos </button>
            
         </div>
-        <div class="right_side">
+        <div class="right_side mt-5">
             <div class="dataset_prev">
-                <div [innerHTML]="html_content" class="table_content"></div>
+                <div style="width: 450px; height: 330px;" class="table-responsive">
+                    <table class="table table-bordered table-hover ">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th scope="col" *ngFor="let column of columns_to_table; index as i"> 
+                            {{column}} 
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let rows of rows_to_table[0]; index as i">
+                          <td *ngFor="let content of rows_to_table; index as j">
+                            {{ content[i] }}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
             </div>
-            <div class="logos">
-                <img src="../../../../../assets/iueHeader.svg" alt="" id="iue_ts">
-                <img src="../../../../../assets/unalWhite.svg" alt="" id="unal_ts">>
-            </div>
+
+
+           
+            <app-footer></app-footer>
         </div>
     </main>
 </body>

@@ -85,3 +85,8 @@ label{
     align-items: center;
     justify-content: center;
 }
+
+.but{
+    width: 250px;
+    height: 40px;
+}

@@ -1,4 +1,4 @@
-<h1 class="title fs-3">Registro de usuarios</h1>
+<h1 class="title d-flex justify-content-center fs-3 mt-3">Registro de usuarios</h1>
 <div class="globalContainer">
 
     <div class="header">
@@ -14,7 +14,23 @@
 
     <form class="container" (ngSubmit)="signup()" [formGroup]="groupForm">
 
-        <label for="username"> Username </label>
+        <label for="email" class="form-label mt-3" style="width: 73%;"> Correo </label>
+        
+        <input 
+            type="email" 
+            id="email"
+            name="email"
+            required="required"
+            formControlName="email"
+            placeholder="Correo"
+            class="form-control mt-0"
+            style="width: 400px; height: 80px;">
+
+        <label for="correo" class="form-text" *ngIf="Email.errors?.pattern">
+                Correo no valido
+        </label>
+
+        <label for="username" class="form-label mt-3" style="width: 73%;"> Username </label>
         
         <input 
             type="text" 
@@ -22,13 +38,16 @@
             name="username"
             required="required"
             formControlName="username"
-            placeholder="Username">
+            placeholder="Username"
+            class="form-control mt-0"
+            style="width: 400px; height: 40px;">
     
-        <label for="username" class="error-label" *ngIf="Username.invalid && (Username.dirty || Username.touched )">
+
+        <label for="username" class="form-text" *ngIf="Username.invalid && (Username.dirty || Username.touched )">
                 Debe contener minimo 6 caracteres    
         </label>
         
-        <label for="password"> Password</label>
+        <label for="password" class="form-label mt-3" style="width: 73%;"> Password</label>
     
         <input 
             type="password"
@@ -36,14 +55,17 @@
             name="password"
             required="required"
             formControlName="password"
-            placeholder="Password">
-        <label for="username" class="error-label" *ngIf="Password.invalid && (Password.dirty || Password.touched )">
+            placeholder="Password"
+            class="form-control mt-0"
+            style="width: 400px; height: 80px;">
+    
+        <label for="username" class="form-text" *ngIf="Password.invalid && (Password.dirty || Password.touched )">
                 Debe ingresar la contraseña
         </label>
-        <button class="login-btn" id="login-btn" type="submit"> Registrar</button>
-        <label for="login-btn"> Ya estas registrado? <a class="sign-up" routerLink="/account/login">Ingresa ahora</a></label>
-    
-    
+
+        <button class="but btn btn-light btn-outline-dark d-flex justify-content-center mt-5" id="login-btn" type="submit"> Registrar</button>
+        <label class="form-text mt-3"> Ya estas registrado? <a class="sign-up" routerLink="/account/signup">Ingresa ahora</a></label>
+
     </form>
 
     

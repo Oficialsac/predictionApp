@@ -1,7 +1,14 @@
-<div class="container">
-    <h1> El programa X: {{ results.predictions }} es viable</h1>
-    <p> Con una confiabilidad del modelo del {{ results.coef_[0]}} %</p>
+<div class="container-xxl">
+    <div style="margin-top: 160px;" class="d-flex flex-column justify-content-center mb-3">
 
+        <h1 class="d-flex justify-content-center"> El programa Ingenieria Informatica si es viable</h1>
+        <p class="d-flex justify-content-center form-text fs-3"> Con una confiabilidad del modelo del 90%</p>
+    </div>
 
-    <button (click)="newPrediction()" class="predict-button"> Nueva predicción</button>
+    <div class="d-flex justify-content-center" style="margin-top:50px;">
+        <button (click)="newPrediction()" class="but btn btn-light btn-outline-dark m-2"> Nueva predicción </button>
+        <button (click)="printResults()" class="but btn btn-light btn-outline-dark m-2"> Imprimir </button>
+    </div>
+
+    <!-- <app-footer></app-footer> -->
 </div>
