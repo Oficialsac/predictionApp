@@ -21,6 +21,7 @@ export class LoginComponent {
   user = {
     username: '',
     password: '',
+    role: 'user',
   };
 
   constructor(
@@ -72,6 +73,7 @@ export class LoginComponent {
       this.user = {
         username: this.groupForm.get('username')?.value,
         password: this.groupForm.get('password')?.value,
+        role: 'user'
       };
 
       // Llamar al servicio para iniciar sesión y validar al usuario

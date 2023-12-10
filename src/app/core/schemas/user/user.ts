@@ -13,5 +13,6 @@ export interface User {
      * Contraseña del usuario.
      */
     password: string;
-  }
+    role: string;
+}
   

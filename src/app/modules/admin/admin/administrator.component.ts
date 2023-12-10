@@ -15,7 +15,9 @@ export class AdministratorComponent {
 
   // Obtener la lista de usuarios
   getUsers() {
-    this.userService.getAllUsers().subscribe((users) => (this.users = users));
+    this.userService.getAllUsers()
+    .subscribe((users) => (this.users = users));
+    console.log(this.users);
   }
 
   // Actualizar el rol de un usuario

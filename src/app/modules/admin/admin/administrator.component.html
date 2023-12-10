@@ -18,7 +18,7 @@
             <tr *ngFor="let user of users; index as i">
                 <th scope="row">{{ i + 1 }}</th>
                 <td>
-                    {{ user.username}}
+                    {{ user.username }}
                 </td>
                 <td class=""> {{ user.role }} </td>
                 <td> <button class="container btn btn-light btn-outline-warning d-flex justify-content-center" (click)="updateRol(user)"> Cambiar </button> </td>
