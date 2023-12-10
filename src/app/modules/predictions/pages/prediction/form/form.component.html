@@ -1,9 +1,19 @@
 <div [formGroup]="form">
 
-    <div class="label-container mb-3">
+    <div class="label-container mb-1">
         <label [attr.for]="variable.key" class="form-label"> {{variable.key}} </label>
         <div class="errorMessage" *ngIf="!isRequired">*</div>   
     </div>
     
-    <input style="width: 88px; height: 40px;" class="form-control" type="text" [formControlName]="variable.key" [id]="variable.key">
+    <div [ngSwitch]="variable.controlType">
+
+        <input style="width: 150px; height: 35px;" *ngSwitchCase="'textbox'" [formControlName]="variable.key"
+                [id]="variable.key" [type]="variable.controlType">
+    
+        <select style="width: 150px; height: 35px;" [id]="variable.key" *ngSwitchCase="'dropdown'" [formControlName]="variable.key">
+          <option *ngFor="let opt of variable.options" [value]="opt.key">{{opt.value}}</option>
+        </select>
+    
+    </div>
+
 </div>

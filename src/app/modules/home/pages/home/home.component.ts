@@ -10,10 +10,10 @@ export class HomeComponent implements OnInit {
   role: boolean = true;
 
   ngOnInit(): void {
-    if(localStorage.getItem('role') !== "admin"){
-      this.role = false;
-    }else{
-      this.role = true;
-    }
+    // Verificar el rol almacenado en el localStorage al iniciar el componente
+    const storedRole = localStorage.getItem('role');
+    
+    // Asignar el valor booleano a la propiedad 'role' según el rol almacenado
+    this.role = storedRole === 'admin';
   }
 }

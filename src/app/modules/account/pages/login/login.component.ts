@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 export class LoginComponent {
   userNameValid: boolean = false;
   passwordNameValid: boolean = false;
-  succes = false;
+  success = false;
   admin_role = false;
   noSuccessful = false;
 
@@ -31,12 +31,15 @@ export class LoginComponent {
   public groupForm!: FormGroup;
 
   ngOnInit(): void {
+    // Inicializa el formulario al iniciar el componente
     this.initForm();
-    // Always my application is initialized here thats why we clear localstorage
+    
+    // Siempre que se inicia mi aplicación, se limpia el localStorage
     localStorage.clear();
   }
 
   initForm(): void {
+    // Inicializa el formulario y define las validaciones
     this.groupForm = new FormGroup({
       username: new FormControl('', [
         Validators.required,
@@ -50,6 +53,7 @@ export class LoginComponent {
     });
   }
 
+  // Obtener controles individuales del formulario
   get Username() {
     return this.groupForm.get('username')!;
   }
@@ -58,36 +62,37 @@ export class LoginComponent {
   }
 
   loginSesion(): void {
-    //  Validate if the username and password are valid
-    //  If they are not valid, a client-side we could see the error message
+    // Validar si el nombre de usuario y la contraseña son válidos
+    // Si no son válidos, en el lado del cliente podríamos ver el mensaje de error
     this.userNameValid = this.groupForm.get('username')?.valid || false;
     this.passwordNameValid = this.groupForm.get('password')?.valid || false;
 
+    // Verificar si los campos son válidos
     if (this.passwordNameValid && this.userNameValid) {
       this.user = {
         username: this.groupForm.get('username')?.value,
         password: this.groupForm.get('password')?.value,
       };
 
-      // Call the service to get the user and validate
-
+      // Llamar al servicio para iniciar sesión y validar al usuario
       this.authService.login(this.user).subscribe({
         next: (res) => {
+          // Manejar la respuesta del servicio
           if (res.success == true) {
             localStorage.setItem('role', res.user.role);
             this.router.navigateByUrl('home');
           } else {
+            // Mostrar alerta si el usuario o la contraseña son incorrectos
             Swal.fire({
-              icon: "error", 
-              title: "Usuario o contraseña incorrecta",  
-            })
+              icon: 'error',
+              title: 'Usuario o contraseña incorrecta',
+            });
           }
         },
         error: (err) => {
           console.error(err.status);
         }
       });
-
     }
   }
 }

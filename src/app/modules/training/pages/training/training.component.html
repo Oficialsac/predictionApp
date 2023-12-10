@@ -10,17 +10,14 @@
           
           <div class="mb-3">
             <label for="file-input" class="form-label">Cargar datos</label>
-            <input style="width: 400px" class="form-control" type="file" id="file-input" (change)="loadData($event)">
+            <input style="width: 400px" class="form-control" type="file" id="file-input" (change)="loadData($event)" multiple>
           </div>
         
           <div class="mb-3">
             <label for="training-model"> Selección del algoritmo </label>
             <select style="width: 400px" name="select" id="training_model" class="form-select">
                 <option selected>Elige el modelo de entrenamiento</option>
-                <option value="MLinearRegression"> Multiple Linear Regression </option>
-                <option value="DesicionTree"> Desicion Tree </option>
-                <option value="Kmeans"> Kmeans </option>
-                <option value="LogisticRegression"> LogisticRegression </option>
+                <option value="MLinearRegression"> Sarimax </option>
             </select>
           </div>
 

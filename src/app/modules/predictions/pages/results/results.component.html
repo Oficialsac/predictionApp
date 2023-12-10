@@ -1,14 +1,17 @@
 <div class="container-xxl">
-    <div style="margin-top: 160px;" class="d-flex flex-column justify-content-center mb-3">
+    <div style="margin-top: 40px;" class="d-flex flex-column justify-content-center mb-1">
 
-        <h1 class="d-flex justify-content-center"> El programa Ingenieria Informatica si es viable</h1>
-        <p class="d-flex justify-content-center form-text fs-3"> Con una confiabilidad del modelo del 90%</p>
+        <p class="d-flex justify-content-center fs-4 text-center"> Para el semestre {{values.anio}} - {{values.semestre}} se estima que el programa
+            {{values.programa}} tendrá {{data[last_prediction]['0']}} estudiantes {{values.datos}}.
+        </p>
+
+        <app-line-chart class="d-flex justify-content-center" [results]="results"></app-line-chart>
     </div>
 
-    <div class="d-flex justify-content-center" style="margin-top:50px;">
+    <div class="d-flex justify-content-center" style="margin-top:60px;">
         <button (click)="newPrediction()" class="but btn btn-light btn-outline-dark m-2"> Nueva predicción </button>
         <button (click)="printResults()" class="but btn btn-light btn-outline-dark m-2"> Imprimir </button>
     </div>
 
-    <!-- <app-footer></app-footer> -->
+    
 </div>

@@ -5,6 +5,7 @@ export class ValuesBase<T> {
     required: boolean;
     controlType: string;
     range: number[];
+    options: {key: string, value: string}[];
 
     constructor(options: {
         value?: T;
@@ -12,11 +13,13 @@ export class ValuesBase<T> {
         required?: boolean;
         controlType?: string;
         range?: number[];
+        options?: {key: string, value: string}[];
     } = {}) {
         this.value = options.value || 0;
         this.key = options.key || '';
         this.required = !!options.required;
         this.controlType = options.controlType || '';
         this.range = options.range || [];
+        this.options = options.options || [];
     }
 }

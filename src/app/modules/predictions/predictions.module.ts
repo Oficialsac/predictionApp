@@ -19,7 +19,7 @@ import { FormComponent } from './pages/prediction/form/form.component';
     FormsModule,
     CommonModule,
     SharedModule,
-    PredictionsRoutingModule
+    PredictionsRoutingModule,
   ]
 })
 export class PredictionsModule { }

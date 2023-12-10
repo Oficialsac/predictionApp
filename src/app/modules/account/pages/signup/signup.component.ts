@@ -37,6 +37,7 @@ export class SignupComponent implements OnInit {
   }
 
   initForm(): void {
+    // Inicializa el formulario y define las validaciones
     this.groupForm = new FormGroup({
       username: new FormControl('', [
         Validators.required,
@@ -54,6 +55,7 @@ export class SignupComponent implements OnInit {
     });
   }
 
+  // Obtener controles individuales del formulario
   get Username() {
     return this.groupForm.get('username')!;
   }
@@ -65,25 +67,28 @@ export class SignupComponent implements OnInit {
   }
 
   signup(): void {
+    // Validar campos del formulario
     this.userNameValid = this.groupForm.get('username')?.valid || false;
     this.passwordNameValid = this.groupForm.get('password')?.valid || false;
     this.emailValid = this.groupForm.get('email')?.valid || false;
 
-    if(this.userNameValid && this.passwordNameValid && this.emailValid == true) {
+    // Verificar si los campos son válidos
+    if (this.userNameValid && this.passwordNameValid && this.emailValid) {
       this.user = {
         email: this.groupForm.get('email')?.value,
         username: this.groupForm.get('username')?.value,
         password: this.groupForm.get('password')?.value,
       };
 
-      // Call the service to get the user and validate
+      // Llamar al servicio para registrar al usuario
       this.authService.signin(this.user).subscribe({
         next: (res) => {
+          // Manejar la respuesta del servicio
           if (res.success === true) {
             Swal.fire({
-              icon: "success", 
-              title: "Usuario registrado correctamente",  
-            })
+              icon: 'success',
+              title: 'Usuario registrado correctamente',
+            });
 
             setTimeout(() => {
               this.isSuccess = false;
@@ -91,9 +96,9 @@ export class SignupComponent implements OnInit {
             }, 2000);
           } else {
             Swal.fire({
-              icon: "error", 
-              title: "El usuario ya esta registrado",  
-            })
+              icon: 'error',
+              title: 'El usuario ya está registrado',
+            });
 
             setTimeout(() => {
               this.isSuccess = false;
@@ -105,10 +110,10 @@ export class SignupComponent implements OnInit {
           console.error(err.status);
         },
       });
-    }else{
-      console.log("entre?");
-      
-      // sweet alert 
+    } else {
+      // Mostrar alerta si los campos no son válidos
+      console.log('Alguno de los campos no es válido');
+      // Sweet Alert
     }
   }
 }

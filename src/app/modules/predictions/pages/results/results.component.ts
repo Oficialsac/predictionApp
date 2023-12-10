@@ -1,58 +1,54 @@
 /* eslint-disable */
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { PredictionsBase } from '../../../../core/schemas/prediction/predictions';
 import { Router } from '@angular/router';
-import { jsPDF } from 'jspdf';
 
+/**
+ * Componente para mostrar los resultados de predicciones.
+ */
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.css'],
 })
-export class ResultsComponent {
+export class ResultsComponent implements OnInit {
+  // Propiedades de entrada
   @Input() results: PredictionsBase = new PredictionsBase();
   @Input() values: any = {};
+  
+  // Evento de salida para controlar la visualización de resultados
   @Output() showResults = new EventEmitter<boolean>();
 
+  // Datos de resultados
+  data?: any;
+  last_prediction?: any;
+
+  /**
+   * Constructor del componente de resultados.
+   * @param router Servicio de enrutamiento de Angular.
+   */
   constructor(private router: Router) {}
 
+  /**
+   * Método que se ejecuta al inicializar el componente.
+   */
+  ngOnInit(): void {
+    // Se asignan los resultados y se redondea la última predicción
+    this.data = this.results.results;
+    this.last_prediction = this.data.length - 1;
+    this.data[this.last_prediction]['0'] = Math.round(this.data[this.last_prediction]['0']);
+  }
+
+  /**
+   * Método para iniciar una nueva predicción.
+   */
   newPrediction() {
+    // Se emite el evento para ocultar los resultados
     this.showResults.emit(false);
   }
 
-  printResults() {
-    /**
-     * To export pdf results need the follow things:
-     * 1) The predictions variables values ( entered by user )
-     * 2) The results and errors of model
-     * 3) Datos de la ecuación
-     **/
-
-    try {
-      const doc = new jsPDF();
-      const column1Width = 60;
-      const column2Width = 60;
-      const rowHeight = 10;
-
-      doc.setFontSize(24);
-      doc.text('Resultado de Predicción', 10, 15);
-
-      // Encabezado de la tabla
-      doc.setFontSize(12);
-      doc.text('Columna 1', 10, 20);
-      doc.text('Columna 2', 80, 20);
-
-      // Dibujar las filas
-      for (let i = 1; i <= 9; i++) {
-        const y = 20 + i * rowHeight;
-        doc.text('Fila ' + i, 10, y);
-        doc.text('Dato ' + i, 80, y);
-      }
-
-      // Generar el PDF
-      doc.save('tabla.pdf');
-    } catch (e) {
-
-    }
-  }
+  /**
+   * Método para imprimir resultados (por implementar).
+   */
+  printResults() {}
 }
