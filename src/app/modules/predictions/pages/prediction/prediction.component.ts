@@ -89,7 +89,7 @@ export class PredictionComponent {
     // Se obtienen los valores del formulario
     this.valuestoPredict = this.form.getRawValue();
     console.log(this.valuestoPredict);
-    
+    Swal.showLoading(Swal.getDenyButton());
     // Se realiza la llamada al servicio de predicción
     this.predictionsService
       .predictValue(this.valuestoPredict)
@@ -102,6 +102,11 @@ export class PredictionComponent {
             results: res.pred_info,
           });
           console.log(this.results);
+          Swal.fire({
+            icon: 'success',
+            title: 'Prediccion Exitosa',
+            text: 'Cierra esta ventana para ver el informe de la predicción',
+          });
           this.showResults = true;
         } else {
           // Se muestra una alerta en caso de error

@@ -21,6 +21,7 @@ export class TrainingComponent {
   trainingSuccesfully: boolean = false;
   dataToSee: any = {};
   successMessage: string = 'Entrenamiento finalizado';
+  selectedModel: string = '';
 
   // Constructor
   constructor(private http: TrainingService) {}
@@ -49,6 +50,10 @@ export class TrainingComponent {
     }
   }
 
+  onModelChange(event: any): any{
+    this.selectedModel = event.target.value;
+  }
+
   // Método para cargar un archivo
   uploadFile(idx: Number, file: File): void {
     if (file) {
@@ -57,28 +62,21 @@ export class TrainingComponent {
           'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
         file.type === 'text/csv'
       ) {
+        Swal.showLoading(Swal.getDenyButton());
         const body: FormData = new FormData();
         body.append('file', file);
         this.http.sendPost(body).subscribe((res: any) => {
-          if (!res.status_load) {
-            console.log(res);
-            Swal.showLoading(Swal.getDenyButton());
-          } else {
-            console.log('File loaded', res);
-            Swal.hideLoading();
-
-            const jsonData = JSON.parse(res.data);
-            this.json_content = jsonData;
-            this.seePrevious(this.json_content);
-            localStorage.setItem(
-              'data_set_'.concat(idx.toString()),
-              JSON.stringify(this.json_content)
-            );
-            Swal.fire({
-              icon: 'success',
-              title: 'Archivos importados exitosamente',
-            });
-          }
+          const jsonData = JSON.parse(res.data);
+          this.json_content = jsonData;
+          this.seePrevious(this.json_content);
+          localStorage.setItem(
+            'data_set_'.concat(idx.toString()),
+            JSON.stringify(this.json_content)
+          );
+          Swal.fire({
+            icon: 'success',
+            title: 'Archivos importados exitosamente',
+          });
         });
       } else {
         Swal.fire({
@@ -92,21 +90,31 @@ export class TrainingComponent {
 
   // Método para entrenar datos
   trainingData() {
-    this.http.trainingData().subscribe((res: any) => {
-      console.log(res);
-
-      Swal.fire({
-        icon: 'success',
-        title: 'Entrenamiento finalizado',
+    console.log(this.selectedModel);
+    if(this.selectedModel !== ''){
+      Swal.showLoading(Swal.getDenyButton());
+      this.http.trainingData().subscribe((res: any) => {
+        
+        Swal.fire({
+          icon: 'success',
+          title: 'Entrenamiento finalizado',
+        });
       });
-    });
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'No hay ningun modelo de entrenamiento',
+        text: 'Seleccione el modelo de entrenamiento que desea utilizar para los datos',
+      });
+    }
+    
   }
 
   // Método que se ejecuta al inicializar el componente
   ngOnInit(): void {
     if (localStorage.getItem('dataSet') !== null) {
       this.dataToSee = localStorage.getItem('dataSet');
-      this.seePrevious(JSON.parse(this.dataToSee));
+      // this.seePrevious(JSON.parse(this.dataToSee));
     }
   }
 }

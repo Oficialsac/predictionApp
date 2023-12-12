@@ -1,12 +1,9 @@
 {
   "name": "angular-electron",
   "version": "12.0.1",
-  "description": "Angular 15 with Electron 24 (Typescript + SASS + Hot Reload)",
-  "homepage": "https://github.com/maximegris/angular-electron",
-  "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
-  },
+  "description": "",
+  "homepage": "",
+  "author": { "name": ""},
   "keywords": [
     "angular",
     "angular 15",
@@ -58,6 +55,7 @@
     "apexcharts": "3.44.2",
     "bootstrap": "^5.2.3",
     "chart.js": "4.4.1",
+    "html2canvas": "1.4.1",
     "jspdf": "2.5.1",
     "jspdf-autotable": "3.6.0",
     "ng-apexcharts": "1.8.0",

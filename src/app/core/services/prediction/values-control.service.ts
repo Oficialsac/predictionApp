@@ -13,7 +13,7 @@ export class ValuesControlService {
   /**
    * Constructor del servicio de control de valores.
    */
-  constructor() {}
+  constructor() {}  
 
   /**
    * Convierte un conjunto de variables en un formulario de Angular.

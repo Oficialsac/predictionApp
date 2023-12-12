@@ -6,13 +6,15 @@ import { PredictionComponent } from './pages/prediction/prediction.component';
 import { ResultsComponent } from './pages/results/results.component';
 import { SharedModule } from '../../shared/shared.module';
 import { FormComponent } from './pages/prediction/form/form.component';
+import { PrintComponent } from './pages/print/print.component';
 
 
 @NgModule({
   declarations: [
     PredictionComponent,
     ResultsComponent,
-    FormComponent
+    FormComponent,
+    PrintComponent
   ],
   imports: [
     ReactiveFormsModule,

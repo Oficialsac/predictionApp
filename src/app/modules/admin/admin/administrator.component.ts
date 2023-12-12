@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from '../../../core/services/authService/auth-service.service';
 import { User } from '../../../core/schemas/user/user';
 
@@ -8,7 +8,7 @@ import { User } from '../../../core/schemas/user/user';
   styleUrls: ['./administrator.component.css'],
   providers: [AuthServiceService],
 })
-export class AdministratorComponent {
+export class AdministratorComponent implements OnInit {
   users: User[] = [];
 
   constructor(private userService: AuthServiceService) {}
@@ -25,7 +25,7 @@ export class AdministratorComponent {
     console.log(user);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Al inicializar el componente, obtener la lista de usuarios
     this.getUsers();
   }

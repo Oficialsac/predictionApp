@@ -11,10 +11,31 @@ import { NotificationComponent } from './components/notification/notification.co
 import { FooterComponent } from './components/footer/footer.component';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { BarChartComponent } from './components/bar-chart/bar-chart.component';
+import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 
 @NgModule({
-  declarations: [PageNotFoundComponent, WebviewDirective, BackButtonComponent, NotificationComponent, FooterComponent, LineChartComponent],
-  imports: [CommonModule, TranslateModule, FormsModule,NgApexchartsModule],
-  exports: [TranslateModule, WebviewDirective, FormsModule, BackButtonComponent, NotificationComponent, FooterComponent, LineChartComponent]
+  declarations: [
+    PageNotFoundComponent,
+    WebviewDirective,
+    BackButtonComponent,
+    NotificationComponent,
+    FooterComponent,
+    LineChartComponent,
+    BarChartComponent,
+    PieChartComponent,
+  ],
+  imports: [CommonModule, TranslateModule, FormsModule, NgApexchartsModule],
+  exports: [
+    TranslateModule,
+    WebviewDirective,
+    FormsModule,
+    BackButtonComponent,
+    NotificationComponent,
+    FooterComponent,
+    LineChartComponent,
+    BarChartComponent,
+    PieChartComponent
+  ],
 })
 export class SharedModule {}

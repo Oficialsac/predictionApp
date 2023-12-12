@@ -1,5 +1,24 @@
-<div class="container-xxl">
-    <div style="margin-top: 40px;" class="d-flex flex-column justify-content-center mb-1">
+<div class="container-xxl" style="overflow: hidden;">
+    <div class="container-xxl">
+        <div style="margin-top: 40px;" class="d-flex flex-column justify-content-center mb-1">
+    
+            <p class="d-flex justify-content-center fs-4 text-center"> Para el semestre {{values.anio}} - {{values.semestre}} se estima que el programa
+                {{values.programa}} tendrá {{data[last_prediction]['0']}} estudiantes {{values.datos}}.
+            </p>
+    
+            <app-line-chart class="d-flex justify-content-center" [results]="results"></app-line-chart>
+        </div>
+    
+        <div class="d-flex justify-content-center" style="margin-top:60px;">
+            <button (click)="newPrediction()" class="but btn btn-light btn-outline-dark m-2"> Nueva predicción </button>
+            <button (click)="printResults()" class="but btn btn-light btn-outline-dark m-2"> Imprimir </button>
+        </div>
+    </div>
+    
+</div>
+
+<div class="container-xxl" id="report_prediction" [hidden]="showReport" style="margin-top: 100px; overflow:hidden;">
+    <div style="margin-top: 40px;" class="d-flex flex-column justify-content-center mb-2">
 
         <p class="d-flex justify-content-center fs-4 text-center"> Para el semestre {{values.anio}} - {{values.semestre}} se estima que el programa
             {{values.programa}} tendrá {{data[last_prediction]['0']}} estudiantes {{values.datos}}.
@@ -8,10 +27,32 @@
         <app-line-chart class="d-flex justify-content-center" [results]="results"></app-line-chart>
     </div>
 
-    <div class="d-flex justify-content-center" style="margin-top:60px;">
-        <button (click)="newPrediction()" class="but btn btn-light btn-outline-dark m-2"> Nueva predicción </button>
-        <button (click)="printResults()" class="but btn btn-light btn-outline-dark m-2"> Imprimir </button>
-    </div>
-
+    <div class="container-xxl d-flex justify-content-center flex-column" style="width: 80%; margin-top: 80px;">
+        <h2 class='d-flex justify-content-center'>Intervalos de confianza</h2>
+        <p> Es el intervalo en el cual se encuentra la predicción, indicando la confianza de la prediccion  </p>
+    </div >
     
+
+    <div class="table-container d-flex justify-content-center" style="height: 380px; overflow: hidden; margin-top: 30px;">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Prediccion</th>
+                    <th scope="col">Int. Más bajo</th>
+                    <th scope="col">Int. Más alto</th>
+                </tr>
+            </thead> 
+            <tbody>
+                <tr *ngFor="let res of data; index as i">
+                    <th scope="row">{{res['index']}}</th>
+                    <td>
+                        {{ res['0'] }}
+                    </td>
+                    <td class=""> {{ res['1'] }} </td>
+                    <td class=""> {{ res['2'] }} </td>
+                </tr>
+            </tbody>       
+        </table>
+    </div>
 </div>

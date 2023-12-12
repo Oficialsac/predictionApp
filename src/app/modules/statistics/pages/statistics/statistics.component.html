@@ -1,0 +1,30 @@
+<div class="header-container mt-3">
+    <app-back-button class="back-button"></app-back-button>
+    <h1 class="fs-3"> Estadísticas </h1>    
+</div>
+<!-- <div class="container-xxl d-flex mt-2">
+    <app-bar-chart [chart_number]=0></app-bar-chart>
+    <app-bar-chart [chart_number]=1></app-bar-chart>
+</div> -->
+<div class="container-xxl mt-2">    
+    <!-- Primera fila -->
+    <div class="row">
+      <div class="col-md-6">
+        <!-- Contenido de la primera columna -->
+        <app-bar-chart [chart_number]=3></app-bar-chart>
+      </div>
+      <div class="col-md-6">
+        <!-- Contenido de la segunda columna -->
+        <app-pie-chart [chart_number]="2" class="d-flex justify-content-center"></app-pie-chart>
+      </div>
+    </div>
+
+    <!-- Segunda fila -->
+    <div class="row">
+      <div class="col-md-12">
+        <app-bar-chart [chart_number]=0></app-bar-chart>
+      </div>
+    </div>
+  </div>
+
+

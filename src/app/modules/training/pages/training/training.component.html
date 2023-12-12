@@ -15,9 +15,8 @@
         
           <div class="mb-3">
             <label for="training-model"> Selección del algoritmo </label>
-            <select style="width: 400px" name="select" id="training_model" class="form-select">
-                <option selected>Elige el modelo de entrenamiento</option>
-                <option value="MLinearRegression"> Sarimax </option>
+            <select style="width: 400px" name="select" id="training_model" class="form-select" [(ngModel)]='selectedModel' (change)="onModelChange($event)">
+                <option value="Sarimax"> Sarimax </option>
             </select>
           </div>
 

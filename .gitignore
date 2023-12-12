@@ -50,3 +50,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+HOW_TO.md
+LICENSE.md
+CHANGELOG.md
+CODE_OF_CONDUCT.md
