@@ -26,6 +26,8 @@ export class PieChartComponent implements OnInit {
   @ViewChild("chart") chart?: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
   @Input() chart_number: number = 0;
+  @Input() value: string = '';
+
   data_to_chart: Array<any> = []; 
   
   constructor(private http: StatisticsService) {

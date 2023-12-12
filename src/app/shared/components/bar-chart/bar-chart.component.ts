@@ -30,6 +30,7 @@ export class BarChartComponent implements OnInit {
   @ViewChild("chart", {static:false}) chart?: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
   @Input() chart_number: number = 0;
+  @Input() value: string = '';
   data_to_chart: Array<any> = []; 
 
   constructor(private http: StatisticsService) {
@@ -56,12 +57,12 @@ export class BarChartComponent implements OnInit {
         categories: []
       },
       title: {
-        text: "Custom DataLabels",
+        text: "Inscritos por Departamento",
         align: "center",
         floating: true
       },
       subtitle: {
-        text: "Category Names as DataLabels inside bars",
+        text: "A nivel nacional",
         align: "center"
       },
       
@@ -69,10 +70,21 @@ export class BarChartComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.http.getStatistics().subscribe((response) => {
       Object.keys(response).forEach((key) => {
         this.data_to_chart.push(response[key])
       })
+      
+      if(this.chart_number == 0){
+        this.chartOptions.title = {
+          text: `Inscritos por Institucion`,
+          align: "center",
+          floating: true
+        }
+      }
+      
+      
       
       this.chartOptions.series = [{
         name: 'Valores',

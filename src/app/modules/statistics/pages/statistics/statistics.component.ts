@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { OnInit, Component } from '@angular/core';
 import { StatisticsService } from '../../../../core/services/statistics/statisticsService.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.component.html',
@@ -9,7 +9,7 @@ import { StatisticsService } from '../../../../core/services/statistics/statisti
 })
 export class StatisticsComponent implements OnInit {
   data_to_chart: any = [];
-  data: any = []
+  data: any = [];
   constructor(private http: StatisticsService) {}
 
   ngOnInit(): void {
