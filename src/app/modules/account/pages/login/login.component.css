@@ -51,6 +51,7 @@
     margin: 50px;
     flex-direction: column;
     align-items: center;
+    width: 500px;
   }
   
   .logos img{

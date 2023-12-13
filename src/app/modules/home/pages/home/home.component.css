@@ -20,7 +20,7 @@ body{
 }
 
 #iue, #unal{
-    width: 180px;
+    width: 300px;
     height: 180px;
     object-fit: contain;
     margin: 20px;
@@ -90,7 +90,7 @@ body{
 }
 
 #iue_ts, #unal_ts{
-    width: 150px;
+    width: 300px;
     height: 150px;
     object-fit: contain;
     margin: 20px;

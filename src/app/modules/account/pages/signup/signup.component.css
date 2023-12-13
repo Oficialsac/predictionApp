@@ -54,6 +54,7 @@
     display: flex;
     justify-content: center;
     margin: 50px;
+    width: 500px;
   }
   
 .logos img{
